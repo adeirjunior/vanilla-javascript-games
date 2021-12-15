@@ -1,9 +1,18 @@
+*{
+    user-select: none;
+}
 body,
 html {
     width: 100%;
     padding: 0;
     margin: 0;
 };
+
+h3,
+p,
+span {
+    cursor: default;
+}
 
 body {
     height: 100vh;
@@ -20,9 +29,17 @@ body {
         flex-wrap: wrap;
         height: 300;
         width: 400px;
+        gap: 10px 10px;
+        align-items: center;
+        justify-content: center;
         img {
             width: 100px;
             max-width: 100px;
+            height: auto;
         };
     };
 };
+
+.handle{
+    cursor: pointer;
+}

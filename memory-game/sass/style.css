@@ -1,8 +1,21 @@
+* {
+  -webkit-user-select: none;
+     -moz-user-select: none;
+      -ms-user-select: none;
+          user-select: none;
+}
+
 body,
 html {
   width: 100%;
   padding: 0;
   margin: 0;
+}
+
+h3,
+p,
+span {
+  cursor: default;
 }
 
 body {
@@ -29,10 +42,22 @@ body .grid {
       flex-wrap: wrap;
   height: 300;
   width: 400px;
+  gap: 10px 10px;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
 }
 
 body .grid img {
   width: 100px;
   max-width: 100px;
+  height: auto;
+}
+
+.handle {
+  cursor: pointer;
 }
 /*# sourceMappingURL=style.css.map */
