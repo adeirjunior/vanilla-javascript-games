@@ -53,7 +53,6 @@ document.addEventListener('DOMContentLoaded', () => {
 
     const body = document.querySelector('body');
     const grid = document.querySelector('.grid');
-    const score = document.querySelector('#score');
     const life = document.querySelector('#life');
     const lifes = document.querySelector('#lifes');
     let hearts = 3;
@@ -62,15 +61,23 @@ document.addEventListener('DOMContentLoaded', () => {
     let cardsChosen = [];
     let cardsChosenId = [];
     let cardsWon = [];
+    const btn = document.createElement('button')
+    btn.style.cursor = 'pointer'
+    btn.addEventListener('click',()=> location.reload())
+    btn.append('Restart')
 
     function createBoard() {
         for (let i = 0; i < cardArray.length; i++) {
             const card = document.createElement('img')
-            card.setAttribute('src', 'images/black.jpg')
-            card.setAttribute('class', 'handle')
             card.setAttribute('data-id', i)
-            card.addEventListener('click', flipCard)
+            card.setAttribute('src',cardArray[i].img)
             grid.appendChild(card)
+            setTimeout(()=>{
+                card.setAttribute('class', 'handle')
+                card.setAttribute('src', 'images/black.jpg')
+                card.addEventListener('click', flipCard)
+                grid.appendChild(card)
+            },1000)
         }
     }
 
@@ -105,15 +112,11 @@ document.addEventListener('DOMContentLoaded', () => {
         if (cardsWon.length === cardArray.length / 2) {
             grid.remove()
             life.innerText = 'You have finished! Congratulations!'
-
+            body.appendChild(btn)
         }
         if (hearts === 0) {
             grid.remove()
             life.innerHTML = 'You have losed, try again!'
-            const btn = document.createElement('button')
-            btn.style.cursor = 'pointer'
-            btn.addEventListener('click',()=> location.reload())
-            btn.append('Restart')
             body.appendChild(btn)
         }
     }
